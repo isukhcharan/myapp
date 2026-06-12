@@ -1,17 +1,12 @@
-FROM node:latest
-
+FROM node:22-alpine AS deps
 WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev
 
-COPY ./images ./images
-COPY ./package.json .
-COPY ./index.html .
-COPY ./server.js .
-
-RUN npm install
-
+FROM node:22-alpine
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
 ENV PORT=3007
-
 EXPOSE 3007
-
-CMD [ "npm", "start" ]
-
+CMD ["node", "server.js"]
