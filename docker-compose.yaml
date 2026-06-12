@@ -1,0 +1,22 @@
+version: '5.1.4'
+services:
+  app1: 
+    image: myapp:1.0
+    environment:
+      - APP_NAME=App1
+    ports:
+      - 5000:3000
+  app2: 
+    image: myapp:1.0
+    environment:
+      - APP_NAME=App2
+    ports:
+      - 5001:3000
+
+
+  app3: 
+    image: myapp:1.0
+    environment:
+      - APP_NAME=App3
+    ports:
+      - 5002:3000
