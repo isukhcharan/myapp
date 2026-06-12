@@ -1,17 +1,17 @@
-version: '5.1.4'
+version: '5.1'
 services:
   app1: 
     image: my-app:latest
     environment:
       - APP_NAME=App1
     ports:
-      - 5000:3000
+      - 5001:3000
   app2: 
     image: my-app:latest
     environment:
       - APP_NAME=App2
     ports:
-      - 5001:3000
+      - 5002:3000
 
 
   app3: 
@@ -19,4 +19,4 @@ services:
     environment:
       - APP_NAME=App3
     ports:
-      - 5002:3000
+      - 5003:3000
